@@ -14,7 +14,7 @@ func HandleRequests() {
 	router.HandleFunc("/page", getPage).Methods("GET")
 	router.HandleFunc("/pages", getPages).Methods("GET")
 	router.HandleFunc("/status", getStatus).Methods("GET")
-	router.HandleFunc("/generate", getStatus).Methods("GET")
+	router.HandleFunc("/generate", getGenerate).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
 
@@ -33,9 +33,9 @@ func getPages(w http.ResponseWriter, r *http.Request) {
 }
 
 func getStatus(w http.ResponseWriter, r *http.Request) {
-	pages := gen.Generate(repo.RepoContents())
+	status := gen.CurrentStatus
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(pages)
+	json.NewEncoder(w).Encode(status)
 }
 
 func getGenerate(w http.ResponseWriter, r *http.Request) {
