@@ -33,7 +33,7 @@ func cloneToFilesystem(path string) error {
 	_, err := git.PlainClone(path, false, &git.CloneOptions{
 		Auth: &http.BasicAuth{
 			Username: "raffaelschneider",
-			Password: "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",
+			Password: "",
 		},
 		URL:      "https://github.com/b-nova-openhub/jams-vanilla-content",
 		Progress: os.Stdout,

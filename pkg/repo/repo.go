@@ -9,7 +9,7 @@ import (
 
 func RepoContents() []string {
 	contentFiles := make([]string, 0)
-	err2, err3 := GetGitRepository("/Users/rschneider/tmp/")
+	err2, err3 := GetGitRepository("/Users/rschneider/tmp/repo")
 	if err2 == nil && err3 == nil {
 		files, err := file.GetAllMdFilesInPath()
 		for _, f := range files {

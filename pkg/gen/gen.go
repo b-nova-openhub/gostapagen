@@ -30,12 +30,20 @@ type Status struct {
 	LastGeneratedAt   string `json:"lastGeneratedAt"`
 }
 
+type Generating struct {
+	Success bool     `json:"success"`
+	Errors  []string `json:"errors"`
+}
+
 var GeneratedPages []StaticPage
 var CurrentStatus *Status
+var Generated *Generating
 
-func Generate(files []string) []StaticPage {
+func Generate(files []string) *Generating {
 	errors := make([]error, 0)
 	pages := make([]StaticPage, 0)
+
+	//repo.RepoContents()
 
 	for _, f := range files {
 		var p StaticPage
@@ -65,7 +73,11 @@ func Generate(files []string) []StaticPage {
 	CurrentStatus.UnpublishedPages = getUnpublished(GeneratedPages)
 	CurrentStatus.LastPublishedPage = getLastPublished(GeneratedPages)
 	CurrentStatus.LastGeneratedAt = time.Now().String()
-	return pages
+
+	Generated = new(Generating)
+	Generated.Success = true
+	Generated.Errors = make([]string, 0)
+	return Generated
 }
 
 func getPublished(pages []StaticPage) (count int) {

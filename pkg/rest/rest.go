@@ -20,7 +20,7 @@ func HandleRequests() {
 
 func getPage(w http.ResponseWriter, r *http.Request) {
 	v := r.URL.Query()
-	pages := gen.Generate(repo.RepoContents())
+	pages := gen.GeneratedPages
 	page := getPageById(v.Get("id"), pages)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(&page)
@@ -39,9 +39,9 @@ func getStatus(w http.ResponseWriter, r *http.Request) {
 }
 
 func getGenerate(w http.ResponseWriter, r *http.Request) {
-	pages := gen.Generate(repo.RepoContents())
+	generated := gen.Generate(repo.RepoContents())
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(pages)
+	json.NewEncoder(w).Encode(generated)
 }
 
 func getPageById(id string, pages []gen.StaticPage) *gen.StaticPage {
