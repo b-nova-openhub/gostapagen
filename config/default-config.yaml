@@ -1,0 +1,10 @@
+---
+source_git_repository_url: ""
+source_git_repository_branch: "main"
+source_git_repository_username: ""
+source_git_repository_password: ""
+target_git_repository_absolute_path: ""
+target_git_repository_relative_path: ""
+content_permalink_base: ""
+content_frontmatter_open: "<content-header>"
+content_frontmatter_close: "</content-header>"
