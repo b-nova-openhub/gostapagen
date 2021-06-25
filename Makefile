@@ -17,7 +17,8 @@ build:
 	go build -o bin/stapagen cmd/stapagen/main.go
 
 run:
-	./bin/stapagen
+	chmod +x stapagen.sh
+	./stapagen.sh
 
 install:
 	mod

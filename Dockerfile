@@ -5,8 +5,10 @@ WORKDIR $GOPATH/src/github.com/b-nova-openhub/stapagen
 COPY . .
 
 RUN go get -d -v ./... \
-    && go install -v ./...
+    && go build -o bin/stapagen cmd/stapagen/main.go \
+    && go install -v ./... \
+    && chmod +x stapagen.sh
 
 EXPOSE 8080
 
-CMD ["stapagen"]
+CMD ["sh", "stapagen.sh"]
