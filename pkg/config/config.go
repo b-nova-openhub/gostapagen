@@ -9,6 +9,7 @@ import (
 
 type Config struct {
 	AppPort                   string
+	ContentDelimiterTag       string
 	SourceGitRepositoryUrl    string
 	SourceGitRepositoryBranch string
 	TargetAbsoluteClonePath   string
@@ -23,11 +24,13 @@ func PersistConfig() {
 	repo := flag.String("repo", "", "The git repository url to clone from. Fully qualified without .git extension.")
 	branch := flag.String("branch", "main", "The git repository branch to clone from. Default branch is 'main'.")
 	absolutePath := flag.String("clonePath", "/tmp", "The absolute path to clone the git repository to. Default path is '/tmp'.")
-	relativePath := flag.String("contentDir", "/content/de", "The directory to the content files within the git repository project. Default directory is '/content'.")
+	relativePath := flag.String("contentDir", "/content", "The directory to the content files within the git repository project. Default directory is '/content'.")
+	delimiter := flag.String("delimiter", "content-header", "The directory to the content files within the git repository project. Default directory is '/content'.")
 	flag.Parse()
 
 	AppConfig = new(Config)
 	AppConfig.AppPort = util.DerefString(port)
+	AppConfig.ContentDelimiterTag = util.DerefString(delimiter)
 	AppConfig.SourceGitRepositoryUrl = util.DerefString(repo)
 	AppConfig.SourceGitRepositoryBranch = util.DerefString(branch)
 	AppConfig.TargetAbsoluteClonePath = util.DerefString(absolutePath)

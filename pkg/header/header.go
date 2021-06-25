@@ -1,6 +1,7 @@
 package header
 
 import (
+	"b-nova-openhub/stapagen/pkg/config"
 	"b-nova-openhub/stapagen/pkg/util"
 	"strings"
 )
@@ -11,7 +12,7 @@ func GetFrontMatter(file string) (map[string]string, error) {
 }
 
 func getHeader(file string) (string, error) {
-	header, err := util.SubstringBetween(file, "<b-nova-content-header>", "</b-nova-content-header>")
+	header, err := util.SubstringBetween(file, "<"+config.AppConfig.ContentDelimiterTag+">", "</"+config.AppConfig.ContentDelimiterTag+">")
 	return string(header), err
 }
 
