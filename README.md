@@ -32,9 +32,9 @@ Linux and macOS:
 go build cmd/stapagen/main.go
 ```
 
-## Using gostapagen
+## Running gostapagen
 
-To use gostapagen, follow these steps:
+To run gostapagen, follow these steps:
 
 ```
 ./main --repo=<content-git-repository-url> --branch=<branch>
@@ -52,6 +52,83 @@ Flags that you can use:
 
 * `--contentDir`: The relative path to the markdown files from within the git repository. Default value for this
   directory is `/content`.
+
+* `--port`: Desired port to expose the RESTful api. Default port is `/8000`.
+
+## Reading gostapagen's API
+
+Once gostapagen is running, it does clone the git repository, converts its markdown files to html pages and forwards
+them over a RESTful api. That api can be accessed over locally if the executable was run on your local
+machine (`http://localhost:8000`) or over a K8s service definition.
+
+* `/generate`: The generate endpoint does make an attempt at cloning the given git repository and directly converts the
+  markdown files to html pages.
+
+**GET-Response:**
+
+```json
+{
+  "success": true,
+  "errors": []
+}
+```
+
+* `/pages`: The pages endpoint exposes all available, read successfully converted pages in a json format.
+
+**GET-Response:**
+
+```json
+[
+  {
+    "title": "<title>",
+    "permalink": "<permalink>",
+    "author": "<author>",
+    "tags": "<tag1, tag2, tag3>",
+    "categories": "<cat1, cat2, cat3>",
+    "publishDate": "<yyyy-mm-dd>",
+    "description": "<description>",
+    "showComments": "<true|false>",
+    "isPublished": "<true|false>",
+    "body": "<markdown rendered to html>"
+  },
+  {
+    <secondpage>
+  },
+  ...
+]
+```
+
+* `/page?id=<permalink>`: The page endpoint takes in an id query parameter where the value has to be the fully qualified
+  permalink of the desired static page. As the `/pages` endpoint, this endpoint renders the page in a json format
+  containing front matter data.
+
+```json
+ {
+  "title": "<title>",
+  "permalink": "<permalink>",
+  "author": "<author>",
+  "tags": "<tag1, tag2, tag3>",
+  "categories": "<cat1, cat2, cat3>",
+  "publishDate": "<yyyy-mm-dd>",
+  "description": "<description>",
+  "showComments": "<true|false>",
+  "isPublished": "<true|false>",
+  "body": "<markdown rendered to html>"
+}
+```
+
+* `/status`: The status endpoint exposes a range of technical information about the generation feature.
+
+```json
+{
+  "totalPages": 42,
+  "publishedPages": 38,
+  "unpublishedPages": 4,
+  "lastPublishedPage": "2021-06-20",
+  "lastGeneratedAt": "2021-06-25 10:22:42.603814 +0200 CEST m=+178.298962869"
+}
+
+```
 
 ## Contributing to gostapagen
 
