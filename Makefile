@@ -10,7 +10,6 @@ fmt:
 	go list -f '{{.Dir}}' ./... | grep -v /vendor/ | xargs -L1 gofmt -l
 
 mod:
-	go mod init
 	go mod tidy
 	go mod vendor
 
