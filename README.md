@@ -134,6 +134,14 @@ machine (`http://localhost:8000`) or over a K8s service definition.
 
 ```
 
+## Deployment to K8s
+
+{coming soon}
+
+### Quick Deployment to DigitalOcean's Kubernetes
+
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/b-nova-openhub/static-page-generator/tree/main)
+
 ## Contributing to gostapagen
 
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
