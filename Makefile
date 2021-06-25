@@ -18,3 +18,7 @@ build:
 
 run:
 	./bin/stapagen
+
+install:
+	mod
+	go install -v ./...

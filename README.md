@@ -29,7 +29,7 @@ To install gostapagen, follow these steps:
 Linux and macOS:
 
 ```
-go build cmd/stapagen/main.go
+$ ❯  go install -v ./...
 ```
 
 ## Running gostapagen
@@ -37,7 +37,7 @@ go build cmd/stapagen/main.go
 To run gostapagen, follow these steps:
 
 ```
-./main --repo=<content-git-repository-url> --branch=<branch>
+$ ❯  stapagen --repo=<content-git-repository-url> --branch=<branch>
 ```
 
 Flags that you can use:
@@ -133,6 +133,20 @@ machine (`http://localhost:8080`) or over a K8s service definition.
 }
 
 ```
+
+## Makefile
+
+There is a Makefile which automates the building process of the stapagen application. The Makefile has 6 build targets:
+test, vet, fmt, mod, build, run, install and all. It can simply be run as such:
+
+```
+$ ❯  make build
+```
+
+## Dockerfile
+
+There is also a Dockerfile by which one can containerize the stapagen application. The port that is being exposed is the
+default 8080.
 
 ## Deployment to K8s
 
