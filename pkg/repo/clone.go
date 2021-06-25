@@ -31,10 +31,6 @@ func cloneToMemory() error {
 func cloneToFilesystem(path string) error {
 	fmt.Println("cloning to filesystem...")
 	_, err := git.PlainClone(path, false, &git.CloneOptions{
-		Auth: &http.BasicAuth{
-			Username: "raffaelschneider",
-			Password: "",
-		},
 		URL:      "https://github.com/b-nova-openhub/jams-vanilla-content",
 		Progress: os.Stdout,
 	})

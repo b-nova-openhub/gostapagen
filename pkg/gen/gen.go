@@ -5,8 +5,6 @@ import (
 	"b-nova-openhub/stapagen/pkg/md"
 	"b-nova-openhub/stapagen/pkg/url"
 	"b-nova-openhub/stapagen/pkg/util"
-	"sort"
-	"time"
 )
 
 type StaticPage struct {
@@ -22,28 +20,17 @@ type StaticPage struct {
 	Body         string `json:"body"`
 }
 
-type Status struct {
-	TotalPages        int    `json:"totalPages"`
-	PublishedPages    int    `json:"publishedPages"`
-	UnpublishedPages  int    `json:"unpublishedPages"`
-	LastPublishedPage string `json:"lastPublishedPage"`
-	LastGeneratedAt   string `json:"lastGeneratedAt"`
-}
-
 type Generating struct {
 	Success bool     `json:"success"`
 	Errors  []string `json:"errors"`
 }
 
 var GeneratedPages []StaticPage
-var CurrentStatus *Status
 var Generated *Generating
 
 func Generate(files []string) *Generating {
 	errors := make([]error, 0)
 	pages := make([]StaticPage, 0)
-
-	//repo.RepoContents()
 
 	for _, f := range files {
 		var p StaticPage
@@ -67,44 +54,10 @@ func Generate(files []string) *Generating {
 	}
 
 	GeneratedPages = pages
-	CurrentStatus = new(Status)
-	CurrentStatus.TotalPages = len(GeneratedPages)
-	CurrentStatus.PublishedPages = getPublished(GeneratedPages)
-	CurrentStatus.UnpublishedPages = getUnpublished(GeneratedPages)
-	CurrentStatus.LastPublishedPage = getLastPublished(GeneratedPages)
-	CurrentStatus.LastGeneratedAt = time.Now().String()
+	SetStatus()
 
 	Generated = new(Generating)
 	Generated.Success = true
 	Generated.Errors = make([]string, 0)
 	return Generated
-}
-
-func getPublished(pages []StaticPage) (count int) {
-	count = 0
-	for _, page := range pages {
-		if page.IsPublished == "true" {
-			count++
-		}
-	}
-	return count
-}
-
-func getUnpublished(pages []StaticPage) (count int) {
-	count = 0
-	for _, page := range pages {
-		if page.IsPublished == "false" {
-			count++
-		}
-	}
-	return count
-}
-
-func getLastPublished(pages []StaticPage) string {
-	dates := make([]string, 0)
-	for _, page := range pages {
-		dates = append(dates, page.PublishDate)
-	}
-	sort.Strings(dates)
-	return dates[len(dates)-1]
 }
