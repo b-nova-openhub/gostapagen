@@ -1,3 +1,5 @@
+![gostapagen-header](https://github.com/b-nova-openhub/jams-vanilla-content/raw/main/gostapagen-header.png)
+
 # gostapagen (go-static-page-generator)
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
