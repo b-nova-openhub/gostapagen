@@ -102,6 +102,8 @@ machine (`http://localhost:8000`) or over a K8s service definition.
   permalink of the desired static page. As the `/pages` endpoint, this endpoint renders the page in a json format
   containing front matter data.
 
+**GET-Response:**
+
 ```json
  {
   "title": "<title>",
@@ -118,6 +120,8 @@ machine (`http://localhost:8000`) or over a K8s service definition.
 ```
 
 * `/status`: The status endpoint exposes a range of technical information about the generation feature.
+
+**GET-Response:**
 
 ```json
 {
