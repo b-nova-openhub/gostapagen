@@ -1,6 +1,7 @@
 # gostapagen (go-static-page-generator)
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
+![GoDoc](https://godoc.org/github.com/go-git/go-git/v5?status.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/b-nova-openhub/static-page-generator)
 ![GitHub contributors](https://img.shields.io/github/contributors/b-nova-openhub/static-page-generator)
 ![GitHub stars](https://img.shields.io/github/stars/b-nova-openhub/static-page-generator?style=social)
