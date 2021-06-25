@@ -2,9 +2,9 @@ package repo
 
 import (
 	"b-nova-openhub/stapagen/pkg/config"
-	"fmt"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/storage/memory"
+	"log"
 	"os"
 )
 
@@ -16,7 +16,7 @@ func Clone(toMemory bool, path string) error {
 }
 
 func cloneToMemory() error {
-	fmt.Println("\nCloning to memory...")
+	log.Println("\nGit clone to memory.\n")
 	_, err := git.Clone(memory.NewStorage(), nil, &git.CloneOptions{
 		URL:      config.AppConfig.SourceGitRepositoryUrl,
 		Progress: os.Stdout,
@@ -25,7 +25,7 @@ func cloneToMemory() error {
 }
 
 func cloneToFilesystem(path string) error {
-	fmt.Println("\nCloning to filesystem...")
+	log.Println("Git clone to path: %+v\n", path)
 	_, err := git.PlainClone(path, false, &git.CloneOptions{
 		URL:      config.AppConfig.SourceGitRepositoryUrl,
 		Progress: os.Stdout,

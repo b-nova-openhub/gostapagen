@@ -4,7 +4,6 @@ import (
 	"b-nova-openhub/stapagen/pkg/header"
 	"b-nova-openhub/stapagen/pkg/md"
 	"b-nova-openhub/stapagen/pkg/url"
-	"b-nova-openhub/stapagen/pkg/util"
 )
 
 type StaticPage struct {
@@ -29,13 +28,11 @@ var GeneratedPages []StaticPage
 var Generated *Generating
 
 func Generate(files []string) *Generating {
-	errors := make([]error, 0)
 	pages := make([]StaticPage, 0)
 
 	for _, f := range files {
 		var p StaticPage
-		frontMatter, err := header.GetFrontMatter(f)
-		errors = append(errors, err)
+		frontMatter := header.GetFrontMatter(f)
 		p.Title = frontMatter["title"]
 		p.Permalink = url.GetPermalink(frontMatter["title"])
 		p.Author = frontMatter["author"]
@@ -47,10 +44,6 @@ func Generate(files []string) *Generating {
 		p.IsPublished = frontMatter["publish"]
 		p.Body = md.ConvertBodyToMarkdown(f)
 		pages = append(pages, p)
-	}
-
-	for _, e := range errors {
-		util.HandleError(e)
 	}
 
 	GeneratedPages = pages

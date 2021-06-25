@@ -6,14 +6,14 @@ import (
 	"strings"
 )
 
-func GetFrontMatter(file string) (map[string]string, error) {
-	header, err := getHeader(file)
-	return getKeyValues(header, ":"), err
+func GetFrontMatter(file string) map[string]string {
+	header := getHeader(file)
+	return getKeyValues(header, ":")
 }
 
-func getHeader(file string) (string, error) {
-	header, err := util.SubstringBetween(file, "<"+config.AppConfig.ContentDelimiterTag+">", "</"+config.AppConfig.ContentDelimiterTag+">")
-	return string(header), err
+func getHeader(file string) string {
+	header := util.SubstringBetween(file, "<"+config.AppConfig.ContentDelimiterTag+">", "</"+config.AppConfig.ContentDelimiterTag+">")
+	return string(header)
 }
 
 func getKeyValues(s, sep string) map[string]string {

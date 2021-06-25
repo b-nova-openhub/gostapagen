@@ -5,6 +5,7 @@ import (
 	"b-nova-openhub/stapagen/pkg/gen"
 	"b-nova-openhub/stapagen/pkg/repo"
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -40,7 +41,9 @@ func getStatus(w http.ResponseWriter, r *http.Request) {
 }
 
 func getGenerate(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("Generate Request: %+v\n", r)
 	generated := gen.Generate(repo.RepoContents())
+	fmt.Printf("Generate Response: %+v\n", generated)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(generated)
 }

@@ -3,25 +3,23 @@ package repo
 import (
 	"b-nova-openhub/stapagen/pkg/config"
 	"b-nova-openhub/stapagen/pkg/file"
-	"b-nova-openhub/stapagen/pkg/util"
 	"io/ioutil"
 	"log"
 )
 
 func RepoContents() []string {
 	contentFiles := make([]string, 0)
-	err2, err3 := GetGitRepository(config.AppConfig.TargetAbsoluteClonePath)
-	if err2 == nil && err3 == nil {
-		files, err := file.GetAllMdFilesInPath()
-		for _, f := range files {
-			readFile, _ := ioutil.ReadFile(f)
-			contentFiles = append(contentFiles, string(readFile))
-		}
-		util.HandleError(err)
+	GetGitRepository(config.AppConfig.TargetAbsoluteClonePath)
 
-	} else {
-		log.Fatalln(err2)
-		log.Fatalln(err3)
+	files, mdErr := file.GetAllMdFilesInPath()
+
+	if mdErr != nil {
+		log.Fatalln("Error during markdown files parsing.")
+	}
+
+	for _, f := range files {
+		readFile, _ := ioutil.ReadFile(f)
+		contentFiles = append(contentFiles, string(readFile))
 	}
 
 	return contentFiles

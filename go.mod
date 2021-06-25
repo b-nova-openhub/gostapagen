@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/Microsoft/go-winio v0.5.0 // indirect
+	github.com/alexcesaro/log v0.0.0-20150915221235-61e686294e58 // indirect
 	github.com/go-git/go-git/v5 v5.4.2
 	github.com/gomarkdown/markdown v0.0.0-20210514010506-3b9f47219fe7
 	github.com/gorilla/mux v1.8.0

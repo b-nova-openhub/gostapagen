@@ -1,7 +1,6 @@
 package util
 
 import (
-	"errors"
 	"strings"
 )
 
@@ -17,12 +16,9 @@ func SubstringAfter(string string, after string) string {
 	return string[adjustedPos:len(string)]
 }
 
-func SubstringBetween(s, start, end string) ([]byte, error) {
+func SubstringBetween(s, start, end string) []byte {
 	var between []byte
 	index := strings.Index(s, start)
-	if index == -1 {
-		return between, errors.New("Not found")
-	}
 	index += len(start)
 	for {
 		char := s[index]
@@ -32,7 +28,7 @@ func SubstringBetween(s, start, end string) ([]byte, error) {
 		between = append(between, char)
 		index++
 	}
-	return between, nil
+	return between
 }
 
 func DerefString(s *string) string {

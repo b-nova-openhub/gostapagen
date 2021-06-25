@@ -1,6 +1,7 @@
 package gen
 
 import (
+	"fmt"
 	"sort"
 	"time"
 )
@@ -22,6 +23,7 @@ func SetStatus() {
 	CurrentStatus.UnpublishedPages = getUnpublished(GeneratedPages)
 	CurrentStatus.LastPublishedPage = getLastPublished(GeneratedPages)
 	CurrentStatus.LastGeneratedAt = time.Now().String()
+	fmt.Printf("Generate Status: %+v\n", CurrentStatus)
 }
 
 func getPublished(pages []StaticPage) (count int) {
