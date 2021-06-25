@@ -1,4 +1,4 @@
-![gostapagen-header](https://github.com/b-nova-openhub/jams-vanilla-content/raw/main/gostapagen-header.png)
+![gostapagen-header](https://github.com/b-nova-openhub/jams-vanilla-content/raw/main/gostapagen-header%20(1).png)
 
 # gostapagen (go-static-page-generator)
 
