@@ -62,7 +62,7 @@ If you have build stapagen with the Makefile, you can simply adjust the paramete
 then launch the script.
 
 ```
-$ ./stapagen.sh
+$ ❯  ./stapagen.sh
 ```
 
 This method is preferable as you're more flexible and don't have to retype the binary arguments everytime.
