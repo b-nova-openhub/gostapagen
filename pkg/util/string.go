@@ -35,6 +35,14 @@ func SubstringBetween(s, start, end string) ([]byte, error) {
 	return between, nil
 }
 
+func DerefString(s *string) string {
+	if s != nil {
+		return *s
+	}
+
+	return ""
+}
+
 func StringNotEmpty(s string) bool {
 	return s != ""
 }

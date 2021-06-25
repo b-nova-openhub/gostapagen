@@ -1,6 +1,7 @@
 package repo
 
 import (
+	"b-nova-openhub/stapagen/pkg/config"
 	"b-nova-openhub/stapagen/pkg/file"
 	"b-nova-openhub/stapagen/pkg/util"
 	"io/ioutil"
@@ -9,7 +10,7 @@ import (
 
 func RepoContents() []string {
 	contentFiles := make([]string, 0)
-	err2, err3 := GetGitRepository("/Users/rschneider/tmp/repo")
+	err2, err3 := GetGitRepository(config.AppConfig.TargetAbsoluteClonePath)
 	if err2 == nil && err3 == nil {
 		files, err := file.GetAllMdFilesInPath()
 		for _, f := range files {

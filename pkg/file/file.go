@@ -1,6 +1,7 @@
 package file
 
 import (
+	"b-nova-openhub/stapagen/pkg/config"
 	"os"
 	"path/filepath"
 )
@@ -17,7 +18,7 @@ func PathExists(path string) (bool, error) {
 }
 
 func GetAllMdFilesInPath() ([]string, error) {
-	return walkMatch("/Users/rschneider/tmp/content/de", "*.md")
+	return walkMatch(config.AppConfig.TargetAbsoluteContentPath, "*.md")
 }
 
 func walkMatch(root, pattern string) ([]string, error) {
