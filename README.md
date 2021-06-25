@@ -22,17 +22,18 @@ Before you begin, ensure you have met the following requirements:
 <!--- These are just example requirements. Add, duplicate or remove as required --->
 
 * You have installed the latest version of `go1.16.5`
-* You have a `Linux/Mac` machine with working knowledge of the underlying filesystem and Go build process.
+* You have a `Linux/Mac OS` machine with working knowledge of the underlying filesystem and Go build process.
 
 ## Installing gostapagen
 
-To install gostapagen, follow these steps:
-
-Linux and macOS:
+If you want to try out on your local machine, you can simply install gostapagen system-wide with the following command:
 
 ```
 $ ❯  go install -v ./...
 ```
+
+Alternatively, you can build a binary and run that one with a configurable shell script. See how to **build stapagen
+with the Makefile** further down below (#Makefile).
 
 ## Running gostapagen
 
@@ -56,6 +57,15 @@ Flags that you can use:
   directory is `/content`.
 
 * `--port`: Desired port to expose the RESTful api. Default port is `/8080`.
+
+If you have build stapagen with the Makefile, you can simply adjust the parameters in the shell script `stapagen.sh` and
+then launch the script.
+
+```
+$ ./stapagen.sh
+```
+
+This method is preferable as you're more flexible and don't have to retype the binary arguments everytime.
 
 ## Reading gostapagen's API
 
