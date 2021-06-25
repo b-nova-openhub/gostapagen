@@ -53,13 +53,13 @@ Flags that you can use:
 * `--contentDir`: The relative path to the markdown files from within the git repository. Default value for this
   directory is `/content`.
 
-* `--port`: Desired port to expose the RESTful api. Default port is `/8000`.
+* `--port`: Desired port to expose the RESTful api. Default port is `/8080`.
 
 ## Reading gostapagen's API
 
 Once gostapagen is running, it does clone the git repository, converts its markdown files to html pages and forwards
 them over a RESTful api. That api can be accessed over locally if the executable was run on your local
-machine (`http://localhost:8000`) or over a K8s service definition.
+machine (`http://localhost:8080`) or over a K8s service definition.
 
 * `/generate`: The generate endpoint does make an attempt at cloning the given git repository and directly converts the
   markdown files to html pages.

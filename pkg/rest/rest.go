@@ -15,7 +15,7 @@ func HandleRequests() {
 	router.HandleFunc("/pages", getPages).Methods("GET")
 	router.HandleFunc("/status", getStatus).Methods("GET")
 	router.HandleFunc("/generate", getGenerate).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
 
 func getPage(w http.ResponseWriter, r *http.Request) {
