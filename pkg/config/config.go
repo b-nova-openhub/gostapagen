@@ -8,6 +8,7 @@ import (
 )
 
 type Config struct {
+	AppPort                   string
 	SourceGitRepositoryUrl    string
 	SourceGitRepositoryBranch string
 	TargetAbsoluteClonePath   string
@@ -17,18 +18,16 @@ type Config struct {
 
 var AppConfig *Config
 
-func PersistsFlags() {
+func PersistConfig() {
+	port := flag.String("port", "8080", "The port being used for the API. Default port is 8080.")
 	repo := flag.String("repo", "", "The git repository url to clone from. Fully qualified without .git extension.")
 	branch := flag.String("branch", "main", "The git repository branch to clone from. Default branch is 'main'.")
 	absolutePath := flag.String("clonePath", "/tmp", "The absolute path to clone the git repository to. Default path is '/tmp'.")
 	relativePath := flag.String("contentDir", "/content/de", "The directory to the content files within the git repository project. Default directory is '/content'.")
 	flag.Parse()
 
-	setAppConfig(repo, branch, absolutePath, relativePath)
-}
-
-func setAppConfig(repo *string, branch *string, absolutePath *string, relativePath *string) {
 	AppConfig = new(Config)
+	AppConfig.AppPort = util.DerefString(port)
 	AppConfig.SourceGitRepositoryUrl = util.DerefString(repo)
 	AppConfig.SourceGitRepositoryBranch = util.DerefString(branch)
 	AppConfig.TargetAbsoluteClonePath = util.DerefString(absolutePath)

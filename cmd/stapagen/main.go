@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	config.PersistsFlags()
+	config.PersistConfig()
 	rest.HandleRequests()
 }

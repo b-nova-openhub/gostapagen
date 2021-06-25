@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"b-nova-openhub/stapagen/pkg/config"
 	"b-nova-openhub/stapagen/pkg/gen"
 	"b-nova-openhub/stapagen/pkg/repo"
 	"encoding/json"
@@ -15,7 +16,7 @@ func HandleRequests() {
 	router.HandleFunc("/pages", getPages).Methods("GET")
 	router.HandleFunc("/status", getStatus).Methods("GET")
 	router.HandleFunc("/generate", getGenerate).Methods("GET")
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(http.ListenAndServe(":"+config.AppConfig.AppPort, router))
 }
 
 func getPage(w http.ResponseWriter, r *http.Request) {
