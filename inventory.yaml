@@ -23,7 +23,7 @@ spec:
         app: static-page-generator
     spec:
       containers:
-        - name: static-page-generator-container
+        - name: static-page-generator
           image: bnova/static-page-generator:latest
           imagePullPolicy: Always
           ports:
