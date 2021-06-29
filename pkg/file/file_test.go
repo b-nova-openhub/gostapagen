@@ -1,0 +1,11 @@
+package file
+
+import (
+	"testing"
+)
+
+// TestHelloName calls greetings.Hello with a name, checking
+// for a valid return value.
+func TestPathExists(t *testing.T) {
+
+}

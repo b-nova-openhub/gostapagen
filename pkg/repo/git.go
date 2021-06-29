@@ -11,13 +11,13 @@ func GetGitRepository(path string) {
 	pathExists, pathErr := file.PathExists(projectPath)
 
 	if pathErr != nil {
-		log.Fatalln("Error before git clone as path already seems to exist: %+x\n", projectPath)
+		log.Fatalf("Error before git clone as path already seems to exist: %+x\n", projectPath)
 	}
 
 	if !pathExists {
 		cloneErr := Clone(false, projectPath)
 		if cloneErr != nil {
-			log.Fatalln("Error during git clone. Path: %+x\n", projectPath)
+			log.Fatalf("Error during git clone. Path: %+x\n", projectPath)
 		}
 	}
 }
