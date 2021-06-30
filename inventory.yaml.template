@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: static-page-generator
+  name: {{APPLICATION_NAME}}
   namespace: jams
 spec:
   minReadySeconds: 3
@@ -13,18 +13,18 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: static-page-generator
+      app: {{APPLICATION_NAME}}
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "9797"
       labels:
-        app: static-page-generator
+        app: {{APPLICATION_NAME}}
     spec:
       containers:
-        - name: static-page-generator
-          image: bnova/static-page-generator:latest
+        - name: {{APPLICATION_NAME}}
+          image: bnova/{{APPLICATION_NAME}}:latest
           imagePullPolicy: Always
           ports:
             - name: http
@@ -41,12 +41,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: static-page-generator
+  name: {{APPLICATION_NAME}}
   namespace: jams
 spec:
   type: LoadBalancer
   selector:
-    app: static-page-generator
+    app: {{APPLICATION_NAME}}
   ports:
     - name: http
       port: 8080
