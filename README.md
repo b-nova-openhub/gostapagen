@@ -4,10 +4,10 @@
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GoDoc](https://godoc.org/github.com/go-git/go-git/v5?status.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/b-nova-openhub/static-page-generator)
-![GitHub contributors](https://img.shields.io/github/contributors/b-nova-openhub/static-page-generator)
-![GitHub stars](https://img.shields.io/github/stars/b-nova-openhub/static-page-generator?style=social)
-![GitHub forks](https://img.shields.io/github/forks/b-nova-openhub/static-page-generator?style=social)
+![GitHub repo size](https://img.shields.io/github/repo-size/b-nova-openhub/gostapagen)
+![GitHub contributors](https://img.shields.io/github/contributors/b-nova-openhub/gostapagen)
+![GitHub stars](https://img.shields.io/github/stars/b-nova-openhub/gostapagen?style=social)
+![GitHub forks](https://img.shields.io/github/forks/b-nova-openhub/gostapagen?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/b__nova?style=social)
 
 gostapagen is a `tool` that allows `markdown content creators` to do `generate and expose statically generated pages`.
@@ -166,7 +166,7 @@ default 8080.
 
 ### Quick Deployment to DigitalOcean's Kubernetes
 
-[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/b-nova-openhub/static-page-generator/tree/main)
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/b-nova-openhub/gostapagen/tree/main)
 
 ## Contributing to gostapagen
 

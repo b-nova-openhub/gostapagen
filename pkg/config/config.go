@@ -3,8 +3,8 @@ package config
 import (
 	"flag"
 	"fmt"
-	"github.com/b-nova-openhub/stapagen/pkg/url"
-	"github.com/b-nova-openhub/stapagen/pkg/util"
+	"github.com/b-nova-openhub/gostapagen/pkg/url"
+	"github.com/b-nova-openhub/gostapagen/pkg/util"
 )
 
 type Config struct {

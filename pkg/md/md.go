@@ -1,8 +1,8 @@
 package md
 
 import (
-	"github.com/b-nova-openhub/stapagen/pkg/config"
-	"github.com/b-nova-openhub/stapagen/pkg/util"
+	"github.com/b-nova-openhub/gostapagen/pkg/config"
+	"github.com/b-nova-openhub/gostapagen/pkg/util"
 	"github.com/gomarkdown/markdown"
 )
 

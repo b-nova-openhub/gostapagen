@@ -3,9 +3,9 @@ package rest
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/b-nova-openhub/stapagen/pkg/config"
-	"github.com/b-nova-openhub/stapagen/pkg/gen"
-	"github.com/b-nova-openhub/stapagen/pkg/repo"
+	"github.com/b-nova-openhub/gostapagen/pkg/config"
+	"github.com/b-nova-openhub/gostapagen/pkg/gen"
+	"github.com/b-nova-openhub/gostapagen/pkg/repo"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"

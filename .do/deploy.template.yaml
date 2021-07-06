@@ -1,7 +1,7 @@
 spec:
-  name: stapagen
+  name: gostapagen
   services:
-    - name: stapagen-service
+    - name: gostapagen-service
       git:
         branch: main
-        repo_clone_url: https://github.com/b-nova-openhub/static-page-generator.git
+        repo_clone_url: https://github.com/b-nova-openhub/gostapagen.git

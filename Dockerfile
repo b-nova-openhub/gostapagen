@@ -1,14 +1,14 @@
 FROM golang:1.16.5-alpine
 
-WORKDIR $GOPATH/src/github.com/b-nova-openhub/stapagen
+WORKDIR $GOPATH/src/github.com/b-nova-openhub/gostapagen
 
 COPY . .
 
 RUN go get -d -v ./... \
-    && go build -o bin/stapagen cmd/stapagen/main.go \
+    && go build -o bin/gostapagen cmd/gostapagen/main.go \
     && go install -v ./... \
-    && chmod +x stapagen.sh
+    && chmod +x gostapagen.sh
 
 EXPOSE 8080
 
-CMD ["sh", "stapagen.sh"]
+CMD ["sh", "gostapagen.sh"]

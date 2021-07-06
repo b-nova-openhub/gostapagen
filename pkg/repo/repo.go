@@ -1,8 +1,8 @@
 package repo
 
 import (
-	"github.com/b-nova-openhub/stapagen/pkg/config"
-	"github.com/b-nova-openhub/stapagen/pkg/file"
+	"github.com/b-nova-openhub/gostapagen/pkg/config"
+	"github.com/b-nova-openhub/gostapagen/pkg/file"
 	"io/ioutil"
 	"log"
 )
