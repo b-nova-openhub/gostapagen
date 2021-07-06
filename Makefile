@@ -14,7 +14,7 @@ mod:
 	go mod vendor
 
 build:
-	go build -o bin/gostapagen cmd/gostapagen/main.go
+	go build -o bin/gostapagen main.go
 
 run:
 	chmod +x gostapagen.sh

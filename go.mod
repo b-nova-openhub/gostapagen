@@ -10,6 +10,7 @@ require (
 	github.com/gosimple/slug v1.9.0
 	github.com/kevinburke/ssh_config v1.1.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
+	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.8.1
 	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
 	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
