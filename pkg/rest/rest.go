@@ -3,10 +3,10 @@ package rest
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/gen"
 	"github.com/b-nova-openhub/gostapagen/pkg/repo"
 	"github.com/gorilla/mux"
+	"github.com/spf13/viper"
 	"log"
 	"net/http"
 )
@@ -17,7 +17,7 @@ func HandleRequests() {
 	router.HandleFunc("/pages", getPages).Methods("GET")
 	router.HandleFunc("/status", getStatus).Methods("GET")
 	router.HandleFunc("/generate", getGenerate).Methods("GET")
-	log.Fatal(http.ListenAndServe(":"+config.AppConfig.AppPort, router))
+	log.Fatal(http.ListenAndServe(":"+viper.GetString("appPort"), router))
 }
 
 func getPage(w http.ResponseWriter, r *http.Request) {

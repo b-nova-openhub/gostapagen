@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/rest"
 	"github.com/spf13/cobra"
 )
@@ -16,6 +15,5 @@ var (
 )
 
 func serve(ccmd *cobra.Command, args []string) {
-	config.PersistConfig()
 	rest.HandleRequests()
 }

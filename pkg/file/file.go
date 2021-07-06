@@ -1,7 +1,8 @@
 package file
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
+	"github.com/b-nova-openhub/gostapagen/pkg/url"
+	"github.com/spf13/viper"
 	"os"
 	"path/filepath"
 )
@@ -18,7 +19,8 @@ func PathExists(path string) (bool, error) {
 }
 
 func GetAllMdFilesInPath() ([]string, error) {
-	return walkMatch(config.AppConfig.TargetAbsoluteContentPath, "*.md")
+	contentPath := viper.GetString("repoClonePath") + "/" + url.GetSlug(viper.GetString("repoUrl")) + viper.GetString("repoContentDir")
+	return walkMatch(contentPath, "*.md")
 }
 
 func walkMatch(root, pattern string) ([]string, error) {

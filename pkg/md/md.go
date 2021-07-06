@@ -1,9 +1,9 @@
 package md
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/util"
 	"github.com/gomarkdown/markdown"
+	"github.com/spf13/viper"
 )
 
 func ConvertBodyToMarkdown(s string) string {
@@ -11,5 +11,5 @@ func ConvertBodyToMarkdown(s string) string {
 }
 
 func getBody(s string) string {
-	return util.SubstringAfter(s, "</"+config.AppConfig.ContentDelimiterTag+">")
+	return util.SubstringAfter(s, "</"+viper.GetString("contentDelimiter")+">")
 }

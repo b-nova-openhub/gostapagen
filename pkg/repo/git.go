@@ -1,13 +1,14 @@
 package repo
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/file"
+	"github.com/b-nova-openhub/gostapagen/pkg/url"
+	"github.com/spf13/viper"
 	"log"
 )
 
 func GetGitRepository(path string) {
-	projectPath := config.AppConfig.TargetAbsoluteProjectPath
+	projectPath := viper.GetString("repoClonePath") + "/" + url.GetSlug(viper.GetString("repoUrl"))
 	pathExists, pathErr := file.PathExists(projectPath)
 
 	if pathErr != nil {

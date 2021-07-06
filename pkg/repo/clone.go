@@ -1,9 +1,9 @@
 package repo
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/storage/memory"
+	"github.com/spf13/viper"
 	"log"
 	"os"
 )
@@ -18,7 +18,7 @@ func Clone(toMemory bool, path string) error {
 func cloneToMemory() error {
 	log.Println("\nGit clone to memory.")
 	_, err := git.Clone(memory.NewStorage(), nil, &git.CloneOptions{
-		URL:      config.AppConfig.SourceGitRepositoryUrl,
+		URL:      viper.GetString("repoUrl"),
 		Progress: os.Stdout,
 	})
 	return err
@@ -27,7 +27,7 @@ func cloneToMemory() error {
 func cloneToFilesystem(path string) error {
 	log.Println("Git clone to path: ", path)
 	_, err := git.PlainClone(path, false, &git.CloneOptions{
-		URL:      config.AppConfig.SourceGitRepositoryUrl,
+		URL:      viper.GetString("repoUrl"),
 		Progress: os.Stdout,
 	})
 	return err

@@ -10,4 +10,4 @@ REPO_BRANCH="main"
 REPO_CLONE_PATH="/tmp"
 REPO_CONTENT_DIR="/content"
 
-./bin/stapagen --port=$APP_PORT --delimiter=$CONTENT_DELIMITER --repo=$REPO_URL --branch=$REPO_BRANCH --clonePath=$REPO_CLONE_PATH --contentDir=$REPO_CONTENT_DIR
+./bin/gostapagen serve --appPort=$APP_PORT --contentDelimiter=$CONTENT_DELIMITER --repoUrl=$REPO_URL --repoBranch=$REPO_BRANCH --repoClonePath=$REPO_CLONE_PATH --repoContentDir=$REPO_CONTENT_DIR

@@ -1,8 +1,8 @@
 package header
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/util"
+	"github.com/spf13/viper"
 	"strings"
 )
 
@@ -12,7 +12,8 @@ func GetFrontMatter(file string) map[string]string {
 }
 
 func getHeader(file string) string {
-	header := util.SubstringBetween(file, "<"+config.AppConfig.ContentDelimiterTag+">", "</"+config.AppConfig.ContentDelimiterTag+">")
+	contentDelimiter := viper.GetString("contentDelimiter")
+	header := util.SubstringBetween(file, "<"+contentDelimiter+">", "</"+contentDelimiter+">")
 	return string(header)
 }
 

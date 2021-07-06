@@ -1,14 +1,14 @@
 package repo
 
 import (
-	"github.com/b-nova-openhub/gostapagen/pkg/config"
 	"github.com/b-nova-openhub/gostapagen/pkg/file"
+	"github.com/spf13/viper"
 	"io/ioutil"
 	"log"
 )
 
 func RepoContents() []string {
-	GetGitRepository(config.AppConfig.TargetAbsoluteClonePath)
+	GetGitRepository(viper.GetString("repoClonePath"))
 	files, mdErr := file.GetAllMdFilesInPath()
 	if mdErr != nil {
 		log.Fatalln("Error during markdown files parsing.")
