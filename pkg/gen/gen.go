@@ -1,9 +1,9 @@
 package gen
 
 import (
-	"b-nova-openhub/stapagen/pkg/header"
-	"b-nova-openhub/stapagen/pkg/md"
-	"b-nova-openhub/stapagen/pkg/url"
+	"github.com/b-nova-openhub/stapagen/pkg/header"
+	"github.com/b-nova-openhub/stapagen/pkg/md"
+	"github.com/b-nova-openhub/stapagen/pkg/url"
 )
 
 type StaticPage struct {

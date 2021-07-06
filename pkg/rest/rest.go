@@ -1,11 +1,11 @@
 package rest
 
 import (
-	"b-nova-openhub/stapagen/pkg/config"
-	"b-nova-openhub/stapagen/pkg/gen"
-	"b-nova-openhub/stapagen/pkg/repo"
 	"encoding/json"
 	"fmt"
+	"github.com/b-nova-openhub/stapagen/pkg/config"
+	"github.com/b-nova-openhub/stapagen/pkg/gen"
+	"github.com/b-nova-openhub/stapagen/pkg/repo"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"

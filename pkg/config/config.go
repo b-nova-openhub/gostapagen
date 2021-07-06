@@ -1,10 +1,10 @@
 package config
 
 import (
-	"b-nova-openhub/stapagen/pkg/url"
-	"b-nova-openhub/stapagen/pkg/util"
 	"flag"
 	"fmt"
+	"github.com/b-nova-openhub/stapagen/pkg/url"
+	"github.com/b-nova-openhub/stapagen/pkg/util"
 )
 
 type Config struct {

@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"b-nova-openhub/stapagen/pkg/config"
+	"github.com/b-nova-openhub/stapagen/pkg/config"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/storage/memory"
 	"log"

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"b-nova-openhub/stapagen/pkg/config"
-	"b-nova-openhub/stapagen/pkg/rest"
+	"github.com/b-nova-openhub/stapagen/pkg/config"
+	"github.com/b-nova-openhub/stapagen/pkg/rest"
 )
 
 func main() {

@@ -1,8 +1,8 @@
 package repo
 
 import (
-	"b-nova-openhub/stapagen/pkg/config"
-	"b-nova-openhub/stapagen/pkg/file"
+	"github.com/b-nova-openhub/stapagen/pkg/config"
+	"github.com/b-nova-openhub/stapagen/pkg/file"
 	"log"
 )
 
