@@ -1,0 +1,6 @@
+appport: "8080"
+contentdelimiter: b-nova-content-header
+repobranch: main
+repoclonepath: /tmp/gostapagen
+repocontentdir: /content
+repourl: https://github.com/b-nova-openhub/jams-vanilla-content

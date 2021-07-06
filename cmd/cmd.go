@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"os"
 )
 
 var (
@@ -27,9 +26,6 @@ var (
 )
 
 func Execute() error {
-	home, err := os.UserHomeDir()
-	cobra.CheckErr(err)
-	viper.WriteConfigAs(home + "/gostapagen.yaml")
 	return gostapagenCmd.Execute()
 }
 
@@ -58,18 +54,16 @@ func initConfig() {
 	if cfgFile != "" {
 		viper.SetConfigFile(cfgFile)
 	} else {
-		home, err := os.UserHomeDir()
-		cobra.CheckErr(err)
-
-		viper.AddConfigPath(home)
-		viper.AddConfigPath(".")
+		viper.SetConfigName("config")
 		viper.SetConfigType("yaml")
-		viper.SetConfigFile(".gostapagen")
+		viper.AddConfigPath("/etc/gostapagen/")
+		viper.AddConfigPath("$HOME/.gostapagen")
+		viper.AddConfigPath(".")
 	}
 
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Config file used for gostapagen: ", viper.ConfigFileUsed())
+		fmt.Printf("Config file used for gostapagen: %s", viper.ConfigFileUsed())
 	}
 }
