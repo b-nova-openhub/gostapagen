@@ -11,4 +11,4 @@ RUN go get -d -v ./... \
 
 EXPOSE 8080
 
-CMD ["sh", "gostapagen.sh"]
+CMD ["sh", "gostapagen.sh", "serve"]
