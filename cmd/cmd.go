@@ -32,7 +32,7 @@ func Execute() error {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	gostapagenCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "Path to config file. Default is '$HOME/.gostapagen'.")
+	gostapagenCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "", "Path to custom config file. Default is '$HOME/.gostapagen/config.yaml'.")
 	gostapagenCmd.PersistentFlags().StringVarP(&appPort, "appPort", "p", "8080", "The port being used for the API. Default port is 8080.")
 	gostapagenCmd.PersistentFlags().StringVarP(&repoUrl, "repoUrl", "r", "", "The git repository url to clone from. Fully qualified without .git extension.l")
 	gostapagenCmd.PersistentFlags().StringVarP(&repoBranch, "repoBranch", "b", "main", "The git repository branch to clone from. Default branch is 'main'.")
@@ -57,7 +57,8 @@ func initConfig() {
 		viper.SetConfigName("config")
 		viper.SetConfigType("yaml")
 		viper.AddConfigPath("/etc/gostapagen/")
-		viper.AddConfigPath("$HOME/.gostapagen")
+		viper.AddConfigPath("$HOME/.gostapagen/")
+		viper.AddConfigPath("../config/")
 		viper.AddConfigPath(".")
 	}
 

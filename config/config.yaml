@@ -1,4 +1,10 @@
+# config file for gostapagen app
+################################
+
+# port this web service is going to be served on. default port if none is being specified is 8080.
+# example: 8000
 appport: "8080"
+
 contentdelimiter: b-nova-content-header
 repobranch: main
 repoclonepath: /tmp/gostapagen
