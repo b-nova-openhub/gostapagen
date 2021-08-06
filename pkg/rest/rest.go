@@ -30,6 +30,11 @@ func getPage(w http.ResponseWriter, r *http.Request) {
 
 func getPages(w http.ResponseWriter, r *http.Request) {
 	pages := gen.GeneratedPages
+	if len(pages) == 0 {
+		generated := gen.Generate(repo.RepoContents())
+		fmt.Printf("Generate Response: %+v\n", generated)
+		pages = gen.GeneratedPages
+	}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(pages)
 }
