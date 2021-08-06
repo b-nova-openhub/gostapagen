@@ -1,4 +1,4 @@
-![gostapagen-header](https://github.com/b-nova-openhub/jams-vanilla-content/raw/main/gostapagen-header%20(1).png)
+![gostapagen-header](https://docs.google.com/drawings/d/e/2PACX-1vTkXfkHIZ-f3cE473Geh3H0LrT8Aaa7HRsXwCtiMmFABg053Zmw_ZjxvBqy_Viz_7WtH4rnSmu1SGh4/pub?w=962&h=330)
 
 # gostapagen (go-static-page-generator)
 
@@ -10,7 +10,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/b-nova-openhub/gostapagen?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/b__nova?style=social)
 
-gostapagen is a `tool` that allows `markdown content creators` to do `generate and expose statically generated pages`.
+**gostapagen is a tool that allows markdown content creators to do generate and expose statically generated pages.**
 
 More specifically, gostapagen is microservice written in Go that converts markdown files in a given git repository,
 converts them to html and exposes those statically rendered pages over a RESTful interface. It is operates on the
