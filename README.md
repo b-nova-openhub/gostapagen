@@ -203,6 +203,7 @@ If you want to contact me you can reach me at [info@b-nova.com](info@b-nova.com)
 ## License
 
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
+<!--- some comment/--->
 
 This project uses the following license: [MIT License](https://opensource.org/licenses/MIT)
 . https://opensource.org/licenses/MIT
